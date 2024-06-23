@@ -9,9 +9,14 @@
                 "-g",
                 "${file}",
                 "-o",
+                "`sdl2-config --cflags`",
+                "`sdl2-config --libs` -lSDL2_ttf",
+                "-Wall",
+                "-Wextra",
+                "-Werror",
+                "-pedantic",
+                "-std=c11",
                 "${fileDirname}/${fileBasenameNoExtension}"
-                "`sdl2-config --cflags`"
-                "`sdl2-config --libs` -lSDL2_ttf"
             ],
             "options": {
                 "cwd": "${fileDirname}"
