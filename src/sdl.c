@@ -1,5 +1,6 @@
 #include <SDL2/SDL.h>
 #include <stdio.h>
+#include "../headers/glob.h"
 #include "../headers/demo.h"
 #include "../headers/rayc.h"
 #include <stdbool.h>
@@ -51,7 +52,7 @@ int init_instance(SDL_Instance *instance)
  *
  */
 
-int poll_events(void)
+int poll_events(SDL_Instance *instance)
 {
 	SDL_Event event;
 	SDL_KeyboardEvent key;
@@ -64,21 +65,18 @@ int poll_events(void)
 				return (1);
 			case SDL_KEYDOWN:
 				key = event.key;
-				/**if (key.keysym.scancode == SDL_SCANCODE_W)
-					move_forward(movespeed);
-					renderscene();
+				if (key.keysym.scancode == SDL_SCANCODE_LEFT)
+					turnleft(instance->renderer);
+				if (key.keysym.scancode == SDL_SCANCODE_RIGHT)
+					turnright(instance->renderer);
+				if (key.keysym.scancode == SDL_SCANCODE_W)
+					moveforward(instance->renderer);
 				if (key.keysym.scancode == SDL_SCANCODE_S)
-					move_backward(movespeed);
-					renderscene();
+					movebackward(instance->renderer);
 				if (key.keysym.scancode == SDL_SCANCODE_A)
-					move_left(
-						
-					);
-					renderscene();
+					moveleft(instance->renderer);
 				if (key.keysym.scancode == SDL_SCANCODE_D)
-					move_right(movespeed);
-					renderscene();
-				**/
+					moveright(instance->renderer);
 				if (key.keysym.scancode == SDL_SCANCODE_ESCAPE)
 					return (1);
 				break;
