@@ -6,14 +6,22 @@
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGHT 600
 #define movespeed 0.05
+#define mouse_sensivity 0.01
+
+/**
+ * struct SDL_Instance - SDL instance
+ * @window: SDL window
+ * @renderer: SDL renderer
+ */
 
 typedef struct SDL_Instance
 {
-    SDL_Window *window;
-    SDL_Renderer *renderer;
+	SDL_Window *window;
+	SDL_Renderer *renderer;
 } SDL_Instance;
 
 int init_instance(SDL_Instance *);
-int poll_events(SDL_Instance *instance);
+int poll_events(gamestate *state);
+void parsemap(const char *filename, gamestate *state);
 
 #endif

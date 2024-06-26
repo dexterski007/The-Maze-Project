@@ -62,6 +62,8 @@
     "demo.h": "c",
     "stdbool.h": "c",
     "glob.h": "c",
-    "rayc.h": "c"
+    "rayc.h": "c",
+    "cmath": "c",
+    "math.h": "c"
   }
 }

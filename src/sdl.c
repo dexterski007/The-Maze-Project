@@ -47,15 +47,16 @@ int init_instance(SDL_Instance *instance)
 
 /**
  * poll_events - function to poll events
+ * @state: state
  *
  * Return: 1 if exit, 0 otherwise
- *
  */
 
-int poll_events(SDL_Instance *instance)
+int poll_events(gamestate *state)
 {
 	SDL_Event event;
 	SDL_KeyboardEvent key;
+	int xrel;
 
 	while (SDL_PollEvent(&event))
 	{
@@ -65,22 +66,66 @@ int poll_events(SDL_Instance *instance)
 				return (1);
 			case SDL_KEYDOWN:
 				key = event.key;
+				if (key.keysym.scancode == SDL_SCANCODE_M)
+					state->show_map = !state->show_map;
 				if (key.keysym.scancode == SDL_SCANCODE_LEFT)
-					turnleft(instance->renderer);
+					turnleft(state);
 				if (key.keysym.scancode == SDL_SCANCODE_RIGHT)
-					turnright(instance->renderer);
+					turnright(state);
 				if (key.keysym.scancode == SDL_SCANCODE_W)
-					moveforward(instance->renderer);
+					moveforward(state);
 				if (key.keysym.scancode == SDL_SCANCODE_S)
-					movebackward(instance->renderer);
+					movebackward(state);
 				if (key.keysym.scancode == SDL_SCANCODE_A)
-					moveleft(instance->renderer);
+					moveleft(state);
 				if (key.keysym.scancode == SDL_SCANCODE_D)
-					moveright(instance->renderer);
+					moveright(state);
 				if (key.keysym.scancode == SDL_SCANCODE_ESCAPE)
 					return (1);
 				break;
+			case SDL_MOUSEMOTION:
+				xrel = event.motion.xrel;
+				mousemove(xrel, state);
 		}
 	}
 	return (0);
+}
+
+/**
+ * parsemap - parse the map
+ * @filename: the map file
+ * @state: the game state
+ *
+ */
+
+void parsemap(const char *filename, gamestate *state)
+{
+	FILE *file = fopen(filename, "r");
+
+	if (!file)
+	{
+		fprintf(stderr, "mapfile cannot be opened\n");
+		exit(EXIT_FAILURE);
+	}
+
+	char line[MAP_WIDTH + 2];
+	int i = 0;
+
+	while (fgets(line, sizeof(line), file) && i < MAP_HEIGHT)
+	{
+		for (int j = 0; j < MAP_WIDTH; j++)
+		{
+			if (line[j] == '1')
+				state->worldMap[i][j] = 1;
+			else if (line[j] == '0')
+				state->worldMap[i][j] = 0;
+			else
+			{
+				fprintf(stderr, "Invalid char in map at row %d, column %d\n",
+						i, j);
+				exit(EXIT_FAILURE);
+			}
+		}
+		i++;
+	}
 }
