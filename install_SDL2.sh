@@ -106,6 +106,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 
 	if ! apt-get install libsdl2-dev; then exit 1; fi
 	if ! apt-get install libsdl2-ttf-dev; then exit 1; fi
+	if ! apt-get install libsdl2-image-dev; then exit 1; fi
 
 	echo -e "\n${GREEN}All set!${NC}"
 
