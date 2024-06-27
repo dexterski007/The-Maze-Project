@@ -3,6 +3,7 @@
 #include "../headers/glob.h"
 #include "../headers/demo.h"
 #include "../headers/rayc.h"
+#include "../headers/textures.h"
 #include <stdbool.h>
 #include <math.h>
 

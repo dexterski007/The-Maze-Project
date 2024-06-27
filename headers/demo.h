@@ -21,6 +21,7 @@ typedef struct SDL_Instance
 } SDL_Instance;
 
 int init_instance(SDL_Instance *);
+void init_gamestate(gamestate *state);
 int poll_events(gamestate *state);
 void parsemap(const char *filename, gamestate *state);
 

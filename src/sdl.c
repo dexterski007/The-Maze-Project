@@ -3,7 +3,30 @@
 #include "../headers/glob.h"
 #include "../headers/demo.h"
 #include "../headers/rayc.h"
+#include "../headers/textures.h"
 #include <stdbool.h>
+
+/**
+ * init_gamestate - function to initialize gamestate
+ * @state: gamestate to initialize
+ */
+
+void init_gamestate(gamestate *state)
+{
+	state->posX = 22;
+	state->posY = 12;
+	state->dirX = 0;
+	state->dirY = -1;
+	state->planeX = -0.66;
+	state->planeY = 0;
+	state->show_map = true;
+	state->keys.left = false;
+	state->keys.right = false;
+	state->keys.w = false;
+	state->keys.s = false;
+	state->keys.a = false;
+	state->keys.d = false;
+}
 
 /**
  * init_instance - function to initialize instance
@@ -65,21 +88,24 @@ int poll_events(gamestate *state)
 			case SDL_QUIT:
 				return (1);
 			case SDL_KEYDOWN:
+			case SDL_KEYUP:
 				key = event.key;
+				bool keydown = (event.type == SDL_KEYDOWN);
+
 				if (key.keysym.scancode == SDL_SCANCODE_M)
 					state->show_map = !state->show_map;
 				if (key.keysym.scancode == SDL_SCANCODE_LEFT)
-					turnleft(state);
+					state->keys.left = keydown;
 				if (key.keysym.scancode == SDL_SCANCODE_RIGHT)
-					turnright(state);
+					state->keys.right = keydown;
 				if (key.keysym.scancode == SDL_SCANCODE_W)
-					moveforward(state);
+					state->keys.w = keydown;
 				if (key.keysym.scancode == SDL_SCANCODE_S)
-					movebackward(state);
+					state->keys.s = keydown;
 				if (key.keysym.scancode == SDL_SCANCODE_A)
-					moveleft(state);
+					state->keys.a = keydown;
 				if (key.keysym.scancode == SDL_SCANCODE_D)
-					moveright(state);
+					state->keys.d = keydown;
 				if (key.keysym.scancode == SDL_SCANCODE_ESCAPE)
 					return (1);
 				break;
@@ -128,4 +154,25 @@ void parsemap(const char *filename, gamestate *state)
 		}
 		i++;
 	}
+}
+
+/**
+ * input_process - process input
+ * @state: the game state
+ */
+
+void input_process(gamestate *state)
+{
+	if (state->keys.left)
+		turnleft(state);
+	if (state->keys.right)
+		turnright(state);
+	if (state->keys.w && !state->keys.s)
+		moveforward(state);
+	if (state->keys.s && !state->keys.w)
+		movebackward(state);
+	if (state->keys.a && !state->keys.d)
+		moveleft(state);
+	if (state->keys.d && !state->keys.a)
+		moveright(state);
 }

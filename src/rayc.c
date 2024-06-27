@@ -3,6 +3,7 @@
 #include "../headers/glob.h"
 #include "../headers/demo.h"
 #include "../headers/rayc.h"
+#include "../headers/textures.h"
 #include <stdbool.h>
 #include <math.h>
 
@@ -135,15 +136,15 @@ double calculate_perp_wall(int mapX, int mapY, int stepX, int stepY,
  * draw_walls - draw walls
  * @renderer: renderer
  * @state: state
+ * @walltextures: walltextures
  */
 
-void draw_walls(SDL_Renderer *renderer, gamestate *state)
+void draw_walls(SDL_Renderer *renderer, gamestate *state,
+				SDL_Texture **walltextures)
 {
 	for (int x = 0; x < SCREEN_WIDTH; x++)
 	{
-		double sideDistX;
-		double sideDistY;
-		double cameraX, raydirX, raydirY;
+		double sideDistX, sideDistY, cameraX, raydirX, raydirY;
 		int mapX = (int)state->posX, mapY = (int)state->posY,
 		stepX, stepY, hit = 0, side;
 		double deltaDistX;
@@ -161,15 +162,24 @@ void draw_walls(SDL_Renderer *renderer, gamestate *state)
 		int line_height = (int)(SCREEN_HEIGHT / perpWallDist);
 		int draw_start = -line_height / 2 + SCREEN_HEIGHT / 2;
 		int draw_end = line_height / 2 + SCREEN_HEIGHT / 2;
+		int text_number = state->worldMap[mapX][mapY] - 1;
+		double wallX;
 
-		if (draw_start < 0)
-			draw_start = 0;
-		if (draw_end >= SCREEN_HEIGHT)
-			draw_end = SCREEN_HEIGHT - 1;
 		if (side == 0)
-			SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
+			wallX = state->posY + perpWallDist * raydirY;
 		else
-			SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
-		SDL_RenderDrawLine(renderer, x, draw_start, x, draw_end);
+			wallX = state->posX + perpWallDist * raydirX;
+		wallX -= floor(wallX);
+		int textX = (int)(wallX * (double)TEXT_WIDTH);
+
+		if (side == 0 && raydirX > 0)
+			textX = TEXT_WIDTH - textX - 1;
+		if (side == 1 && raydirY < 0)
+			textX = TEXT_WIDTH - textX - 1;
+		SDL_Rect source_rect = {textX, 0, 1, TEXT_HEIGHT};
+		SDL_Rect dest_rect = {x, draw_start, 1, draw_end - draw_start};
+
+		SDL_RenderCopy(renderer, walltextures[text_number], &source_rect,
+					   &dest_rect);
 	}
 }

@@ -2,7 +2,8 @@
 #define _RAYC_H_
 
 
-void draw_walls(SDL_Renderer *renderer, gamestate *state);
+void draw_walls(SDL_Renderer *renderer, gamestate *state,
+				SDL_Texture **walltextures);
 void turnleft(gamestate *state);
 void turnright(gamestate *state);
 void moveforward(gamestate *state);
