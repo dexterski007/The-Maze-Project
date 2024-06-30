@@ -74,6 +74,11 @@ Example map file:
 
 ## 📸 Screenshots
 
+![Capture d’écran du 2024-06-30 20-54-52](https://github.com/dexterski007/The-Maze-Project/assets/144383579/8b1621db-b110-45db-8417-729db1626cc3)
+![Capture d’écran du 2024-06-30 20-55-43](https://github.com/dexterski007/The-Maze-Project/assets/144383579/64708a4c-06e2-4327-9faa-2cb5c1909d46)
+![Capture d’écran du 2024-06-30 20-56-56](https://github.com/dexterski007/The-Maze-Project/assets/144383579/122b7c31-5fb4-434e-823e-6bf3aa3db2cc)
+
+
 ## 👥 Authors
 
 - dexterski007
