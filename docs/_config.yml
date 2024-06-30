@@ -13,12 +13,10 @@ people:
   pic: 1
   position: Lead Developper
   social:
-    - title: twitter
-      url: #
-    - title: facebook
-      url: #
-    - title: stack-overflow
-      url: #
+  - title: linkedin
+    url: https://www.linkedin.com/in/mohamed-boujelfa-128b0a287/
+  - title: github
+    url: https://www.github.com/dexterski007
 
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
