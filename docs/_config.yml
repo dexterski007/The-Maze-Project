@@ -17,7 +17,7 @@ people:
     url: https://www.linkedin.com/in/mohamed-boujelfa-128b0a287/
   - title: github
     url: https://www.github.com/dexterski007
-  - title: x-twitter
+  - title: twitter
     url: https://x.com/dexterski007
 
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
@@ -26,7 +26,7 @@ social:
     url: https://www.linkedin.com/in/mohamed-boujelfa-128b0a287/
   - title: github
     url: https://www.github.com/dexterski007
-  - title: x-twitter
+  - title: twitter
     url: https://x.com/dexterski007
 
 # Build settings
