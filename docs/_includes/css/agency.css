@@ -190,6 +190,8 @@ fieldset[disabled] .btn-xl.active {
 .navbar-default .navbar-collapse {
     border-color: gray;
     background-color: gray;
+    margin-left: -20px;
+    padding-right: 20px;
 }
 
 .navbar-default .navbar-toggle {
@@ -867,7 +869,7 @@ body {
     webkit-tap-highlight-color: #{{ site.data.template.color.primary }};
 }
 
-.col-sm-4 {
+.row #dexter {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
