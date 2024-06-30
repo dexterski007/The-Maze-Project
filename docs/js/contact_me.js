@@ -1,3 +1,7 @@
+(function() {
+    emailjs.init("QJ99ZoQHvgolOFG3R");
+})();
+
 $(function() {
 
     $("input,textarea").jqBootstrapValidation({
