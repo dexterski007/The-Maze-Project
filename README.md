@@ -12,6 +12,7 @@ Welcome to **The Maze Project**! This project showcases a maze generation and so
 
 ## 🛠️ Installation
 
+(Instructions for Ubuntu and debian based distros)
 To get started, you need to install the necessary prerequisites. Simply run the following script:
 
 ```bash
@@ -20,6 +21,7 @@ sudo ./install_SDL2.sh
 
 ## 🏗️ Compilation
 
+(Instructions for Ubuntu and debian based distros)
 Once the prerequisites are installed, compile the project by running:
 
 ```bash
