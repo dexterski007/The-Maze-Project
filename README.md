@@ -1,6 +1,15 @@
 # 🌟 The Maze Project 🌟
 
-Welcome to **The Maze Project**! This project showcases a maze generation and solving algorithm using SDL2 and raytracing. Dive into the world of mazes and experience the magic of real-time rendering!
+Welcome to **The Maze Project**! This project showcases a maze game with custom maps using SDL2 and raytracing. Dive into the world of mazes and experience the magic of real-time rendering!
+
+### 🌐 Project Website
+
+Check out our project website to learn more about The Maze Project: [Project Website](https://dexterski007.github.io/The-Maze-Project/)
+
+### 👥 LinkedIn Profile
+
+Connect with us on LinkedIn: [LinkedIn Profile](https://www.linkedin.com/in/mohamed-boujelfa-128b0a287/)
+
 
 ## 📋 Table of Contents
 - [Installation](#installation)
@@ -84,3 +93,21 @@ Example map file:
 ## 👥 Authors
 
 - dexterski007
+
+## 🤝 Contributing
+We welcome contributions to The Maze Project! If you would like to contribute, please follow these steps:
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them.
+4. Push your changes to your forked repository.
+5. Open a pull request to the main repository.
+
+We appreciate your contributions and will review your pull request as soon as possible.
+
+## 🔗 Related Projects
+Here are some related projects that you might find interesting:
+- [SDL2](https://github.com/libsdl-org/SDL): SDL2 Library.
+- [SDL2 Image](https://github.com/libsdl-org/SDL_image): SDL2 image library for textures.
+
+## 📄 Licensing
+The Maze Project is licensed under the MIT License. You can find the full license text in the [LICENSE](https://github.com/dexterski007/The-Maze-Project/blob/main/LICENSE) file.
