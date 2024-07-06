@@ -18,6 +18,9 @@ Connect with us on LinkedIn: [LinkedIn Profile](https://www.linkedin.com/in/moha
 - [Map File Format](#map-file-format)
 - [Screenshots](#screenshots)
 - [Authors](#authors)
+- [Contributing](#Contributing)
+- [Related Projects](#Related-Projects)
+- [Licensing](#Licensing)
 
 ## 🛠️ Installation
 
