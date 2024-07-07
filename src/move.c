@@ -8,8 +8,11 @@
 #include <math.h>
 
 /**
- * turnright - turn right
- * @state: state
+ * turnright - function to turn the camera right
+ * @state: A pointer to gamestate data structure
+ *
+ * This function updates the direction and plane vectors of the camera
+ * in the gamestate structure to simulate a right turn.
  *
  */
 
@@ -29,9 +32,12 @@ void turnright(gamestate *state)
 }
 
 /**
- * turnleft - turn left
- * @state: state
+ * turnleft - Function to turn the camera left.
  *
+ * This function is responsible for turning the camera left in the game.
+ * It takes a gamestate data structure as a parameter.
+ *
+ * @state: The gamestate data structure.
  */
 
 void turnleft(gamestate *state)
@@ -49,10 +55,14 @@ void turnleft(gamestate *state)
 }
 
 /**
- * mousemove - move the mouse
- * @xrel: the relative x position
- * @state: the game state
+ * mousemove - Moves the mouse to a new position.
  *
+ * This function is responsible for moving the mouse
+ * to a new position on the screen. It takes the relative
+ * x position as a parameter and updates the gamestate accordingly.
+ *
+ * @xrel: The relative x position to move the mouse to.
+ * @state: The gamestate data structure.
  */
 
 void mousemove(int xrel, gamestate *state)
@@ -72,14 +82,22 @@ void mousemove(int xrel, gamestate *state)
 }
 
 /**
- * showmap - show the map
- * @renderer: the renderer
- * @posX: the x position
- * @posY: the y position
- * @dirX: the x direction
- * @dirY: the y direction
- * @map: the map
+ * showmap - Function to render the map on the screen.
  *
+ * This function takes the renderer instance, player position,
+ * player direction, and the map as parameters.
+ * It renders the map on the screen using the provided
+ * renderer, highlighting walls with black color and empty
+ * spaces with white color. It also draws a red rectangle
+ * to represent the player's position and a green line
+ * to represent the player's line of sight.
+ *
+ * @renderer: The renderer instance used to render the map.
+ * @posX: The x position of the player.
+ * @posY: The y position of the player.
+ * @dirX: The x direction of the player.
+ * @dirY: The y direction of the player.
+ * @map: The map array containing the layout of the game world.
  */
 
 void showmap(SDL_Renderer *renderer, double posX, double posY, double dirX,

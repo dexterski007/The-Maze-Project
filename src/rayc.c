@@ -8,15 +8,17 @@
 #include <math.h>
 
 /**
- * calc_rays - calculate rays
- * @x: x
- * @raydirX: raydirX
- * @raydirY: raydirY
- * @cameraX: cameraX
- * @state: state
- * Return: void
+ * calc_rays - Calculate the direction of the rays for a given x-coordinate.
+ * @x: The x-coordinate.
+ * @raydirX: Pointer to the variable to store the x-coordinate of the ray.
+ * @raydirY: Pointer to the variable to store the y-coordinate of the ray.
+ * @cameraX: Pointer to the variable to store the x-coordinate of the camera.
+ * @state: Pointer to the gamestate data.
+ *
+ * This function calculates the direction of the rays for a given x-coordinate
+ * on the screen. It uses the camera position, direction, and plane vectors
+ * from the gamestate data to calculate the ray direction.
  */
-
 void calc_rays(int x, double *raydirX, double *raydirY, double *cameraX,
 			   gamestate *state)
 {
@@ -26,23 +28,25 @@ void calc_rays(int x, double *raydirX, double *raydirY, double *cameraX,
 }
 
 /**
- * calculate_distance - calculate distance
- * @raydirX: raydirX
- * @raydirY: raydirY
- * @stepX: stepX
- * @stepY: stepY
- * @sideDistX: sideDistX
- * @sideDistY: sideDistY
- * @deltaDistX: deltaDistX
- * @deltaDistY: deltaDistY
- * @mapX: mapX
- * @mapY: mapY
- * @state: state
- * Return: void
+ * calculate_distance - Calculate the distance to the next wall or boundary.
+ * @raydirX: The x-coordinate of the ray.
+ * @raydirY: The y-coordinate of the ray.
+ * @stepX: Pointer to the variable to store the x step.
+ * @stepY: Pointer to the variable to store the y step.
+ * @sideDistX: Pointer to the variable to store the x side distance.
+ * @sideDistY: Pointer to the variable to store the y side distance.
+ * @deltaDistX: The difference of distance in x.
+ * @deltaDistY: The difference of distance in y.
+ * @mapX: The x-coordinate of the map.
+ * @mapY: The y-coordinate of the map.
+ * @state: Pointer to the gamestate data.
+ *
+ * This function calculates the distance to the next wall or boundary
+ * in the direction of the ray. It uses the ray direction, step size,
+ * and side distances to calculate the distance.
  */
-
-void calculate_distance(double raydirX, double raydirY, int *stepX,
-						int *stepY, double *sideDistX, double *sideDistY,
+void calculate_distance(double raydirX, double raydirY, int *stepX, int *stepY,
+						double *sideDistX, double *sideDistY,
 						double deltaDistX, double deltaDistY,
 						int mapX, int mapY, gamestate *state)
 {
@@ -69,21 +73,24 @@ void calculate_distance(double raydirX, double raydirY, int *stepX,
 }
 
 /**
- * collision_detect - detect collision
- * @mapX: mapX
- * @mapY: mapY
- * @stepX: stepX
- * @stepY: stepY
- * @sideDistX: sideDistX
- * @sideDistY: sideDistY
- * @deltaDistX: deltaDistX
- * @deltaDistY: deltaDistY
- * @side: side
- * @hit: hit
- * @state: state
- * Return: void
+ * collision_detect - Detect collision with walls.
+ * @mapX: Pointer to the variable to store the x-coordinate of the map.
+ * @mapY: Pointer to the variable to store the y-coordinate of the map.
+ * @stepX: The x step.
+ * @stepY: The y step.
+ * @sideDistX: The x side distance.
+ * @sideDistY: The y side distance.
+ * @deltaDistX: The difference of distance in x.
+ * @deltaDistY: The difference of distance in y.
+ * @side: Pointer to the variable to store the side of the wall.
+ * @hit: Pointer to the variable to store the hit flag.
+ * @state: Pointer to the gamestate data.
+ *
+ * This function detects collision with walls by incrementing the
+ * map coordinates
+ * and side distances until a wall is hit. It updates the map coordinates,
+ * side distances, side of the wall, and hit flag accordingly.
  */
-
 void collision_detect(int *mapX, int *mapY, int stepX, int stepY,
 					  double *sideDistX, double *sideDistY,
 					  double deltaDistX, double deltaDistY,
@@ -109,18 +116,21 @@ void collision_detect(int *mapX, int *mapY, int stepX, int stepY,
 }
 
 /**
- * calculate_perp_wall - calculate perp wall
- * @mapX: mapX
- * @mapY: mapY
- * @stepX: stepX
- * @stepY: stepY
- * @raydirX: raydirX
- * @raydirY: raydirY
- * @side: side
- * @state: state
- * Return: perp wall position
-  */
-
+ * calculate_perp_wall - Calculate the perpendicular distance to the wall.
+ * @mapX: The x-coordinate of the map.
+ * @mapY: The y-coordinate of the map.
+ * @stepX: The x step.
+ * @stepY: The y step.
+ * @raydirX: The x-coordinate of the ray.
+ * @raydirY: The y-coordinate of the ray.
+ * @side: The side of the wall.
+ * @state: Pointer to the gamestate data.
+ *
+ * This function calculates the perpendicular distance to the wall
+ * based on the map coordinates, step size, ray direction,
+ * and side of the wall.
+ * Return: the calculated perpendicular wall distance.
+ */
 double calculate_perp_wall(int mapX, int mapY, int stepX, int stepY,
 						   double raydirX, double raydirY, int side,
 						   gamestate *state)
@@ -131,14 +141,18 @@ double calculate_perp_wall(int mapX, int mapY, int stepX, int stepY,
 		return ((mapY - state->posY + (1 - stepY) / 2) / raydirY);
 }
 
-
 /**
- * draw_walls - draw walls
- * @renderer: renderer
- * @state: state
- * @walltextures: walltextures
+ * draw_walls - Draw the walls on the screen.
+ * @renderer: The SDL renderer.
+ * @state: Pointer to the gamestate data.
+ * @walltextures: Array of wall textures.
+ *
+ * This function draws the walls on the screen using the SDL renderer.
+ * It calculates the ray direction, distance to the wall,
+ * and texture coordinates
+ * for each x-coordinate on the screen. It then renders the wall texture
+ * on the corresponding portion of the screen.
  */
-
 void draw_walls(SDL_Renderer *renderer, gamestate *state,
 				SDL_Texture **walltextures)
 {
@@ -146,7 +160,7 @@ void draw_walls(SDL_Renderer *renderer, gamestate *state,
 	{
 		double sideDistX, sideDistY, cameraX, raydirX, raydirY;
 		int mapX = (int)state->posX, mapY = (int)state->posY,
-		stepX, stepY, hit = 0, side;
+			stepX, stepY, hit = 0, side;
 		double deltaDistX;
 		double deltaDistY, perpWallDist;
 
@@ -156,9 +170,9 @@ void draw_walls(SDL_Renderer *renderer, gamestate *state,
 		calculate_distance(raydirX, raydirY, &stepX, &stepY, &sideDistX,
 						   &sideDistY, deltaDistX, deltaDistY, mapX, mapY, state);
 		collision_detect(&mapX, &mapY, stepX, stepY, &sideDistX, &sideDistY,
-					     deltaDistX, deltaDistY, &side, &hit, state);
+						 deltaDistX, deltaDistY, &side, &hit, state);
 		perpWallDist = calculate_perp_wall(mapX, mapY, stepX, stepY,
-					   raydirX, raydirY, side, state);
+										   raydirX, raydirY, side, state);
 		int line_height = (int)(SCREEN_HEIGHT / perpWallDist);
 		int draw_start = -line_height / 2 + SCREEN_HEIGHT / 2;
 		int draw_end = line_height / 2 + SCREEN_HEIGHT / 2;

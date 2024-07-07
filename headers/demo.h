@@ -9,7 +9,7 @@
 #define mouse_sensivity 0.01
 
 /**
- * struct SDL_Instance - SDL instance
+ * struct SDL_Instance - SDL instance structure
  * @window: SDL window
  * @renderer: SDL renderer
  */

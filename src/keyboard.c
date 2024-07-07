@@ -7,9 +7,15 @@
 #include <math.h>
 
 /**
- * moveforward - move forward
- * @state: state
+ * moveforward - Moves the player character forward in the game.
  *
+ * This function is responsible for moving the player
+ * character forward in the game. It takes a gamestate
+ * data structure as a parameter.
+ *
+ * @state: A pointer to the gamestate data structure.
+ *
+ * Return: void
  */
 
 void moveforward(gamestate *state)
@@ -31,9 +37,13 @@ void moveforward(gamestate *state)
 
 }
 /**
- * movebackward - move backward
- * @state: state
+ * movebackward - Moves the player character backward in the game.
  *
+ * This function is responsible for moving the player
+ * character backward in the game. It takes a gamestate
+ * data structure as a parameter.
+ *
+ * @state: A pointer to the gamestate data structure.
  */
 
 void movebackward(gamestate *state)
@@ -55,9 +65,12 @@ void movebackward(gamestate *state)
 }
 
 /**
- * moveleft - move left
- * @state: state
+ * moveleft - Moves the player character to the left in the game.
  *
+ * This function is responsible for moving the player character to the left
+ * in the game. It takes a gamestate data structure as a parameter.
+ *
+ * @state: A pointer to the gamestate data structure.
  */
 
 void moveleft(gamestate *state)
@@ -79,9 +92,12 @@ void moveleft(gamestate *state)
 }
 
 /**
- * moveright - move right
- * @state: the game state
+ * moveright - Moves the player character to the right in the game.
  *
+ * This function is responsible for moving the player character to the right
+ * in the game. It takes a gamestate data structure as a parameter.
+ *
+ * @state: A pointer to the gamestate data structure.
  */
 
 void moveright(gamestate *state)

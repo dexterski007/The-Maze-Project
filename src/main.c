@@ -7,13 +7,21 @@
 #include <stdbool.h>
 
 
-
 /**
- * main - Entry point
- * @argc: number of arguments
- * @argv: arguments
- * Return: 0 on success else 1
+ * main - Entry point of the program.
  *
+ * @argc: The number of command-line arguments.
+ * @argv: An array of command-line argument strings.
+ *
+ * This function serves as the entry point for the program.
+ * It takes two parameters, argc and argv, which represent
+ * the number of command-line arguments and the array
+ * of command-line arguments, respectively. The function
+ * returns an integer value of 0 on success, indicating
+ * that the program executed successfully. If there was an error
+ * during execution, the function returns an integer value of 1.
+ *
+ * Return: 0 on success, 1 on error.
  */
 
 int main(int argc, char *argv[])

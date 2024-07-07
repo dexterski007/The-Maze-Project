@@ -9,12 +9,16 @@
 #include <math.h>
 
 /**
- * init_textures - function to initialize textures
- * @renderer: renderer
+ * init_textures - Initializes textures for a graphics application.
+ * @renderer: The renderer used to create the textures.
  *
- * Return: textures
+ * This function initializes textures for a graphics application by loading
+ * texture files and creating texture objects from them. The textures are
+ * stored in an array and returned to the caller.
+ *
+ * Return: An array of SDL_Texture pointers representing the
+ * initialized textures.
  */
-
 
 SDL_Texture **init_textures(SDL_Renderer *renderer)
 {
@@ -57,10 +61,12 @@ SDL_Texture **init_textures(SDL_Renderer *renderer)
 	return (textures);
 }
 /**
- * draw_floor - draw floor
- * @renderer: renderer
- * @floorTexture: floorTexture
- * @state: state
+ * draw_floor - Draws the floor using the specified
+ * renderer and floor texture.
+ *
+ * @renderer: The renderer used to draw the floor.
+ * @floorTexture: The texture used for the floor.
+ * @state: A pointer to the gamestate data structure.
  */
 
 void draw_floor(SDL_Renderer *renderer, SDL_Texture *floorTexture,
@@ -98,9 +104,10 @@ void draw_floor(SDL_Renderer *renderer, SDL_Texture *floorTexture,
 }
 
 /**
- * draw_sky - draw sky
- * @renderer: renderer
- * @skycolor: skycolor
+ * draw_sky - Draws the sky using the specified renderer and sky color.
+ *
+ * @renderer: The renderer used to draw the sky.
+ * @skycolor: The color used for the sky.
  */
 
 void draw_sky(SDL_Renderer *renderer, SDL_Color skycolor)

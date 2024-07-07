@@ -7,8 +7,13 @@
 #include <stdbool.h>
 
 /**
- * init_gamestate - function to initialize gamestate
- * @state: gamestate to initialize
+ * init_gamestate - Initializes the gamestate.
+ *
+ * This function is used to initialize the gamestate structure.
+ * It takes a pointer to the gamestate structure as a parameter
+ * and initializes its members.
+ *
+ * @state: A pointer to the gamestate structure to initialize.
  */
 
 void init_gamestate(gamestate *state)
@@ -29,12 +34,15 @@ void init_gamestate(gamestate *state)
 }
 
 /**
- * init_instance - function to initialize instance
+ * init_instance - Initializes the SDL instance.
  *
- * @instance: instance to initialize
+ * This function is used to initialize the SDL instance.
+ * It takes a pointer to the SDL_Instance structure as a parameter
+ * and initializes its members.
  *
- * Return: 0 if success else 1
+ * @instance: A pointer to the SDL_Instance structure to initialize.
  *
+ * Return: 0 if success, else 1.
  */
 
 int init_instance(SDL_Instance *instance)
@@ -70,9 +78,22 @@ int init_instance(SDL_Instance *instance)
 
 /**
  * poll_events - function to poll events
- * @state: state
+ * @state: A pointer to the gamestate structure.
  *
- * Return: 1 if exit, 0 otherwise
+ * This function is used to poll events from the SDL event queue.
+ * It takes a pointer to the gamestate structure as a parameter.
+ * The function handles various types of events, such as keyboard
+ * events and mouse motion events, and updates the gamestate accordingly.
+ * If the user presses the 'M' key, it toggles the visibility of the map.
+ * If the user presses the left arrow key, it sets the 'left' flag in the
+ * gamestate keys structure to true. Similarly, it updates the 'right',
+ * 'w', 's', 'a', and 'd' flags based on the corresponding key events.
+ * If the user presses the escape key, it returns 1 to indicate that
+ * the program should exit.
+ * If the user moves the mouse, it calls the 'mousemove' function to
+ * handle the mouse motion.
+ *
+ * Return: 1 if the program should exit, 0 otherwise.
  */
 
 int poll_events(gamestate *state)
@@ -119,9 +140,18 @@ int poll_events(gamestate *state)
 
 /**
  * parsemap - parse the map
- * @filename: the map file
- * @state: the game state
  *
+ * This function is used to parse the map from a file and update the game
+ * state accordingly. It takes the filename of the map file and a pointer
+ * to the game state as parameters.
+ * The function opens the map file and reads each line, parsing the characters
+ * to update the game state's worldMap.
+ * Each '1' character represents a wall, and each '0' character represents
+ * an empty space. If an invalid character is encountered, an error
+ * message is printed and the program exits.
+ *
+ * @filename: The filename of the map file to parse.
+ * @state: A pointer to the game state structure to update.
  */
 
 void parsemap(const char *filename, gamestate *state)
@@ -158,7 +188,26 @@ void parsemap(const char *filename, gamestate *state)
 
 /**
  * input_process - process input
- * @state: the game state
+ * @state: A pointer to the gamestate structure.
+ *
+ * This function is used to process user input and update the
+ * gamestate accordingly.
+ * It takes a pointer to the gamestate structure as a parameter.
+ * The function checks the state of various keys in the gamestate
+ * keys structure
+ * and performs corresponding actions based on the key states.
+ * If the 'left' key is pressed, it calls the 'turnleft' function
+ * to rotate the player left.
+ * If the 'right' key is pressed, it calls the 'turnright' function
+ * to rotate the player right.
+ * If the 'w' key is pressed and the 's' key is not pressed, it calls
+ * the 'moveforward' function to move the player forward.
+ * If the 's' key is pressed and the 'w' key is not pressed, it calls
+ * the 'movebackward' function to move the player backward.
+ * If the 'a' key is pressed and the 'd' key is not pressed, it calls
+ * the 'moveleft' function to move the player left.
+ * If the 'd' key is pressed and the 'a' key is not pressed, it calls
+ * the 'moveright' function to move the player right.
  */
 
 void input_process(gamestate *state)
