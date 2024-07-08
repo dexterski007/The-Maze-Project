@@ -12,7 +12,7 @@ The project began as a small idea: I am a gamer, I love games, what is the best 
 
 This game was created with what I learned at ALX, C variables, loops, data structures, functions and lots, lots of mathematics.
 
-IMAGE HOLDER MEME GAME
+![Meme-8-2](https://github.com/dexterski007/The-Maze-Project/assets/144383579/7f30dfab-ab0d-43a5-9bad-27d040490175)
 
 #### The Project development process
 
@@ -20,39 +20,40 @@ After choosing the project, I started by reading about SDL2, Raycasting, and the
 
 I started experimenting with a blank SDL2 window, choosing the title, dimensions, and other settings, I started with a small c file that contains all the the needed functions, compiled, and Tada!!! it works!
 
-IMAGE HOLDER DEMO
+![Capture d’écran du 2024-07-08 19-25-58](https://github.com/dexterski007/The-Maze-Project/assets/144383579/e9db0385-ab9f-4b93-abcb-dd6ee9a4ffdf)
 
 Now let's move to the next step, add a map.
 I added an array of zeros and ones to the main function, set up values for player position, fov, camera position, and made some calculations, defined the colors of each face of the 3D representation, and after a lot of trials and errors, it did'nt work!
 
-IMAGE HOLDER MEME PROGRAMMER
+![Meme-10](https://github.com/dexterski007/The-Maze-Project/assets/144383579/02ab88d6-74b1-472e-a13c-24394312fb23)
 
 It was in this moment, that I decided to make a pause, watch some Animes, drink a cup of tea, read the documentation, then go back to work, after another session of trials and errors, it was finally alive !!!
 
-IMAGE HOLDER WORTHY
 
 The program was running fine, and it was colorful, the dimensions were a bit off but I managed to get them done at the end, the view was worth all that fatigue and stress!
 
-IMAGE HOLDER A VIEW OF THE GAME
+![Meme-1](https://github.com/dexterski007/The-Maze-Project/assets/144383579/588f01d5-d23c-4110-a9d6-a33c17d375ab)
+
+![Capture d’écran du 2024-07-08 19-36-03](https://github.com/dexterski007/The-Maze-Project/assets/144383579/f0ee76f6-3692-403f-b210-b9fd37c7f62c)
 
 Then I needed to implement movement, I started with camera movement, using mouse and keyboard, and it worked just fine, then I implemented player's movement using WASD keys, it was looking great!
 
-IMAGE HOLDER ANOTHER VIEW
+![Capture d’écran du 2024-06-30 20-53-03](https://github.com/dexterski007/The-Maze-Project/assets/144383579/6f676527-db81-4a3b-939c-98f249f91e52)
 
 Now it's time for a new challenge, Implementing Textures.
 I started by reading the doc of SDL2-Image, choosing textures, then finding a way to apply them instead of solid colors, after a lot of trial and error again, I finished by succeeding, and the results were fabulous!
 
 After this, I applied another texture for the floor, then choose a simple blue color for the sky, The game is looking gorgeous!!
 
-IMAGE HOLDER SCREEN APP WITH TEXTURE
+![Capture d’écran du 2024-06-30 20-55-43](https://github.com/dexterski007/The-Maze-Project/assets/144383579/a5352fc9-8c11-4aa1-80be-e5e8b2a41251)
 
 After that, I implemented a minimap that can be switched on or off using M key, it was like doing a little game inside of the main game, but the result was very satisfying!
 
-IMAGE HOLDER MAP
+![Capture d’écran du 2024-06-30 20-56-56](https://github.com/dexterski007/The-Maze-Project/assets/144383579/c80adfaf-4666-4ab4-8346-1675bab92efb)
 
 After that I edited the program to accept a text mapfile as an argument, then parse it to have a customized map.
 
-IMAGE HOLDER FILE
+![Capture d’écran du 2024-06-30 20-54-52](https://github.com/dexterski007/The-Maze-Project/assets/144383579/304a0582-7720-4d6d-8ec7-c3c703f9545f)
 
 After everything has been done, a little problem remained: making all these c files and headers compliant with [Holeberton School Betty Style](https://github.com/alx-tools/Betty) tool. And it was quite the challenge!
 
@@ -68,7 +69,7 @@ One small problem was remaining, I used global variables to hold the game state,
 
 I created data structures to hold key press states, game state, and it was awesome, I was able to manipulate data over the game like before, and clean output of Betty Checker gave me a huge satisfaction!
 
-IMAGE HOLDER BETTY
+![Capture d’écran du 2024-07-08 19-54-01](https://github.com/dexterski007/The-Maze-Project/assets/144383579/78e562b8-b252-4960-9b6c-907bc5a98b46)
 
 The game was ready, it was playable, and I met the deadline with more functions than I was even aiming at before, It was a tremendous success!
 
