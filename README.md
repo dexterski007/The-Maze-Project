@@ -69,7 +69,7 @@ One small problem was remaining, I used global variables to hold the game state,
 
 I created data structures to hold key press states, game state, and it was awesome, I was able to manipulate data over the game like before, and clean output of Betty Checker gave me a huge satisfaction!
 
-![Capture d’écran du 2024-07-08 19-54-01](https://github.com/dexterski007/The-Maze-Project/assets/144383579/78e562b8-b252-4960-9b6c-907bc5a98b46)
+![Capture d’écran du 2024-07-08 20-09-30](https://github.com/dexterski007/The-Maze-Project/assets/144383579/b618de1e-ce88-49f4-9961-94050f400e0a)
 
 The game was ready, it was playable, and I met the deadline with more functions than I was even aiming at before, It was a tremendous success!
 
